@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Culprit Finder Report</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		body {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th, td {
+			border: 1px solid #ddd;
+    		padding: 8px;
+		}
+
+		th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		.yellow { background-color: #ffffe3; }
+		.orange { background-color: #ffebd9; }
+		.red { background-color: #ffb5b5; }
+		.black { background-color: #000; color: #fff; }
+	</style>
+</head>
+<body>
+<table>
+<thead>
+	<tr>
+		<th>Branch</th>
+		<th>Last commit date</th>
+		<th>Age</th>
+		<th>Author</th>
+	</tr>
+</thead>
+<tbody>
