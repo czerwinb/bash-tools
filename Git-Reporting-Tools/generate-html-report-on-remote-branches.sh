@@ -21,9 +21,7 @@ function generate_report_for() {
 
     for branch in ${branches}; do
         load_BRANCH_METADATA_for "${branch}"
-        
-        local last_commit_timestamp="${BRANCH_METADATA[2]}"
-        local branch_age_days=$((($(date +%s) - $last_commit_timestamp) / 60 / 60 / 24))
+        local branch_age_days=$(calculate_branch_age_in_days_for ${BRANCH_METADATA[2]})
         
         if [ "${branch_age_days}" -gt "${BRANCH_AGE_THRESHOLD_DAYS}" ]; then
             append_report_row \
@@ -36,6 +34,13 @@ function generate_report_for() {
                 "${BRANCH_METADATA[4]}"
         fi
     done
+    aa
+}
+
+function calculate_branch_age_in_days_for() {
+    local last_commit_timestamp="${1}"
+    local branch_age_days=$((($(date +%s) - $last_commit_timestamp) / 60 / 60 / 24))
+    echo ${branch_age_days}
 }
 
 function truncate_file() {
@@ -93,8 +98,7 @@ function generate_culprits_list_for() {
     for branch in ${branches}; do
         load_BRANCH_METADATA_for "${branch}"
         
-        local last_commit_timestamp="${BRANCH_METADATA[2]}"
-        local branch_age_days=$((($(date +%s) - $last_commit_timestamp) / 60 / 60 / 24))
+        local branch_age_days=$(calculate_branch_age_in_days_for ${BRANCH_METADATA[2]})
         local author_name="${BRANCH_METADATA[3]}"
         local author_email="${BRANCH_METADATA[4]}"
         
