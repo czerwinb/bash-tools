@@ -34,7 +34,6 @@ function generate_report_for() {
                 "${BRANCH_METADATA[4]}"
         fi
     done
-    aa
 }
 
 function calculate_branch_age_in_days_for() {
@@ -108,7 +107,7 @@ function generate_culprits_list_for() {
                 "${author_name}" \
                 "${author_email}" \
                 >> ${culprits_file}
-            separator="; "
+            separator=", "
         fi
     done
 }
