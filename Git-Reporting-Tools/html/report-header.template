@@ -37,8 +37,11 @@
 	</style>
 </head>
 <body>
+<div>
 <p>You are receiving this report because there is at least one remote branch you have contributed to where last contribution date is older than defined treshold. <strong>Please look for your name and take actions</strong>.</p>
 <h1>Unmerged remote branches on backoffice-web</h1>
+</div>
+<div>
 <table>
 <thead>
 	<tr>
